@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot name="HTC_Vive_Tracker">
+
+  <material name="black">
+    <color rgba="0 0 0 1.0"/>
+    <!--texture filename="package://vive_tracking/meshes/black.png"/-->
+  </material>
+
+  <link name="vive_tracker_link">
+    <visual>
+      <geometry>
+	<mesh filename="package://vive_tracking/meshes/HTC_Vive_Tracker.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+</robot>
