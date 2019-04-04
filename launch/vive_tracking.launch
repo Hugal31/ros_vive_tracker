@@ -1,0 +1,16 @@
+<launch>
+    <arg name="update_rate" default="30"/>
+    <arg name="tracked_classes" default="1,2,3"
+         doc="Numbers of the classes to follow. 1: HMD, 2: Controller, 3: Trackers"/>
+    <arg name="vive_world_tf" default="0 0 0 0 0 0 1" />
+
+    <group ns="vive">
+        <node name="tracker" pkg="vive_tracking" type="vive_tracking_node" required="true">
+            <param name="update_rate" value="$(arg update_rate)"/>
+            <param name="tracked_classes" value="$(arg tracked_classes)"/>
+        </node>
+
+        <node name="tf_vive_to_world" pkg="tf2_ros" type="static_transform_publisher" required="true"
+              args="$(arg vive_world_tf) /world /vive_world"/>
+    </group>
+</launch>
